@@ -1,0 +1,15 @@
+services:
+  httpcustom:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: httpcustom
+    ports:
+      - "80:80"
+    restart: unless-stopped
+    # Se você quiser atualizar o HTML/JSON sem rebuild, descomente os volumes abaixo:
+    # volumes:
+    #   - ./mapa_integrado_go.html:/app/public/index.html:ro
+    #   - ./microrregioes_go.json:/app/public/microrregioes_go.json:ro
+    #   # adicione outros assets se necessário:
+    #   # - ./assets/:/app/public/assets/:ro
